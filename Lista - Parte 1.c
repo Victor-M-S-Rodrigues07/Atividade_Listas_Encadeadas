@@ -85,6 +85,23 @@ int contar_nos (no* lista) {
     return quantidade;
 }
 
+// 3) Busca de Elemento
+
+int buscar_elemento (no* lista, int elementoProcurado) {
+
+    while (lista != NULL) {
+
+        if (lista -> dado == elementoProcurado) {
+
+            return 1;
+        }
+
+        lista = lista -> proximo;
+    }
+
+    return 0;
+}
+
 int main () {
 
     no* lista = NULL;
@@ -95,6 +112,18 @@ int main () {
     inserir_inicio (&lista, 60);
 
     printf ("A quantidade de nos: %d\n", contar_nos (lista));
+
+    int elementoProcurado = 30;
+
+    if (buscar_elemento (lista, elementoProcurado) == 1) {
+
+        printf ("O elemento %d esta na lista!\n", elementoProcurado);
+    }
+
+    else {
+
+        printf ("O elemento %d nao esta na lista!\n", elementoProcurado);
+    }
 
     liberar_memoria (lista);
 }
