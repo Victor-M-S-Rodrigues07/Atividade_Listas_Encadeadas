@@ -57,17 +57,6 @@ void inserir_fim (no** lista, int valor) {
     }
 }
 
-void imprimir_lista (no* lista) {
-
-    while (lista != NULL) {
-
-        printf ("%d -> ", lista -> dado);
-        lista = lista -> proximo;
-    }
-
-    printf ("NULL\n");
-}
-
 void liberar_memoria (no* lista) {
 
     no* temp;
@@ -80,6 +69,22 @@ void liberar_memoria (no* lista) {
     }
 }
 
+// 2) Contagem de Nós
+
+int contar_nos (no* lista) {
+
+    int quantidade = 0;
+
+    while (lista != NULL) {
+
+        quantidade++;
+
+        lista = lista -> proximo;
+    }
+
+    return quantidade;
+}
+
 int main () {
 
     no* lista = NULL;
@@ -89,6 +94,7 @@ int main () {
     inserir_inicio (&lista, 40);
     inserir_inicio (&lista, 60);
 
-    imprimir_lista (lista);
+    printf ("A quantidade de nos: %d\n", contar_nos (lista));
+
     liberar_memoria (lista);
 }
